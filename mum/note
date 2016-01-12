@@ -1,1 +1,33 @@
 W1D2
+
+Algorithm arrayMax(A,n)
+
+Input array A of n integers
+Output maximum elemtn of A
+
+currentMax <- A[0]
+for i<- 1 to n-1 do
+if A[i] > currentMax then
+currentmax <- A[i]
+
+return currentMax
+--------------------------------------------------------------------------------
+Remove duplicates algorithm: Translate into pseudo-code:
+Given a list L, return a list M of the distinct elements of L by doing the following: 
+    For each n less than size of L, if L[n] is not yet in M, then add L[n] to M.
+    
+    Algorithm removeDuplicate(L,M)
+    Input a list L
+    Output a list M containing the distinct elements of L
+    int count = 0
+    boolean flag = false
+    for i<- 0 to L.size-1 do
+      for j <- 0 to M.size -1 do
+      if(L[i]=M[j]) flag=true;
+    if(!flag)  
+    M[count++] = L[i]
+    
+    return M
+
+
+
