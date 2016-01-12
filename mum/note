@@ -84,6 +84,31 @@ For this problem, do the following:
 A. Design an algorithm Merge to solve this problem and write your algorithm
 description using the pseudo-code syntax discussed in class.
 
+Algorithm merge (A, B, N)
+int count =0;
+int i=0;
+int itr = A.size()+B.size()
+while(count< itr)
+{
+if(A[a]>=B[b]
+c[count++]=A[a++]
+else(A[a]<B[b])
+c[count++]=B[b++]
+
+if(a==A.size())
+while(b<=B.size)
+C[count++] = B[b++]
+
+if(b==B.size())
+while(a<=A.size)
+C[count++] = A[a++]
+
+
+
+
+
+}
+
 B. Examining your pseudo-code, determine the asymptotic running time of this
 merge algorithm
 
