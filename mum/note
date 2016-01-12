@@ -28,6 +28,28 @@ Given a list L, return a list M of the distinct elements of L by doing the follo
     M[count++] = L[i]
     
     return M
+    
+------------------------------------------------------------------
+-------------------------Assignments------------------------------
+1. Compute the number of primitive operations for each of the following algorithm
+fragments. The “increment counter” step has not been mentioned explicitly – be sure
+to take this into account in your computations. Hint: When faced with nested for
+loops, compute the number of steps required by the inner loop first, and then figure
+out the effect of the outer loop.
+A. sum ← 0                    [1]
+for i ← 0 to n-1 do           [2n+n+1+1] n+1 conditioncheck , 2n increment and 1 assignment
+sum ← sum + 1                 [n(1+1)] addition and assignment
+--------------------------    ------------
+total                          5n+3
+
+
+B. sum ← 0                    [1] assignment
+for i ← 0 to n-1 do           [3n+2]
+for j ← 0 to n-1 do           n*[3n+2]
+sum ← sum + 1                 n*n*2
+-------------------------     --------------
+total                         3+5n+5n2
+    
 
 
 
