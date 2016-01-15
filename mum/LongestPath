@@ -1,0 +1,78 @@
+package algo;
+
+public class LongestPaht {
+	
+	static int count =0;
+
+	public static void main(String[] args) {
+		
+		int[][] A = {
+				     {0,0,0,0,0,0},
+					 {0,0,1,1,0,0},
+		             {0,1,0,1,1,0},
+					 {0,1,1,1,1,0},
+		             {0,1,1,0,1,0},
+					 {0,0,0,0,0,0}
+		             };
+		
+		boolean[][]M = {
+				{true,true,true,true,true,true},
+				{true,true,true,true,true,true},
+				{true,true,true,true,true,true},
+				{true,true,true,true,true,true},
+				{true,true,true,true,true,true},
+				{true,true,true,true,true,true}
+		                };
+		
+		boolean up = true;
+		boolean down = true;
+		int x = fun(1,2,A,M);
+		System.out.println(x);
+	}
+	
+	static int fun(int x,int y,int[][]A,boolean[][]M)
+	
+	{
+		if(A[x-1][y]==1){
+			
+			if(M[x-1][y]==true)
+			{
+				M[x-1][y]=false;
+				count++;
+				fun(x-1,y,A,M);
+			}
+		}
+		if(A[x+1][y]==1){
+			
+			if(M[x+1][y]==true)
+			{
+				M[x+1][y]=false;
+				count++;
+				fun(x+1,y,A,M);
+			}
+			
+		}
+		if(A[x][y-1]==1){
+			
+			if(M[x][y-1]==true)
+			{
+				M[x][y-1]=false;
+				count++;
+				fun(x,y-1,A,M);
+			}
+	
+		}
+		if(A[x][y+1]==1){
+			
+			if(M[x][y+1]==true)
+			{
+				M[x][y+1]=false;
+				count++;
+				fun(x,y+1,A,M);
+			}
+	
+		}
+		return count;
+		
+	}
+}
