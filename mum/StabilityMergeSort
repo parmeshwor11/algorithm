@@ -1,0 +1,69 @@
+package algo;
+
+public class StabilityMergeSort {
+
+	
+	
+	static Item [] A = {new Item(1,2),new Item(1,3),new Item(2,3),new Item(5,1), new Item(3,3)};
+	static Item[] Aux = new Item[A.length];
+	public static void main(String[] args) {
+		
+		mergeSort(A,Aux,0,A.length-1);
+		for(Item x:A)
+		System.out.print(x+" \n");
+	}
+	
+	static void mergeSort(Item[] A,Item[] Aux,int lo, int hi){
+		
+		if(hi<=lo)
+			return;
+		
+		    int mid = lo + (hi - lo) / 2;
+			mergeSort(A,Aux,lo,mid);
+			mergeSort(A,Aux,mid+1,hi);
+			merge(A,Aux,lo,mid,hi);
+				
+	}
+	
+	private static void merge(Item[] a, Item[] aux,int lo, int mid, int hi) {
+		
+		 // copy to aux[]
+       for (int k = lo; k <= hi; k++) {
+           aux[k] = a[k]; 
+       }
+       
+       int i = lo; int j = mid+1;
+		
+		for(int k=lo;k<=hi;k++){
+			if(i>mid)                 a[k] = aux[j++];
+			else if(j>hi)             a[k] = aux[i++];
+			else if (aux[j].key<aux[i].key)   a[k] = aux[j++];
+			else                      a[k] = aux[i++];
+		}
+		
+		
+		
+		
+	}
+	
+	
+	static private class Item{
+		int key;
+		int val;
+		
+		Item(int key, int val){
+			this.key = key;
+			this.val = val;
+		}
+		
+		@Override
+		public String toString() {
+			// TODO Auto-generated method stub
+			return "key : "+this.key+"  val : "+this.val;
+		}
+	}
+	
+	
+}
+
+
