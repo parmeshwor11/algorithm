@@ -16,14 +16,6 @@ public class SubsetSum {
         int arr[] = {1,2,3,4,5};
 
         subset(arr,0);
-
-
-        // sum to 8  [1,3,4 :: 5,3]
-        // sum to 6 [1,2,3 :: 2,4 ::  3,5]
-        // number of subsets is 2^n so here 32
-
-
-
      for(int[] a : li)
      {
          System.out.println();

@@ -1,3 +1,5 @@
+package algorithm.mum;
+
 public class McCarthy91{
 
      public static void main(String []args){
