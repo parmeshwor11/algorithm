@@ -1,0 +1,9 @@
+Ploynomial time : an algorithm that runs in polynomial time means , the number of
+                  steps of processing required is a polynomial function of input size.
+
+P, NP Problems
+
+P : problem can be solved using algorithm that runs in polynomial time.
+    P problems are said to have feasible solutions because an algorithm
+    that runs in ploynomial time can output its result in acceptable length of time.
+    
