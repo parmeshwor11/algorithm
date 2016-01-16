@@ -7,17 +7,16 @@ public class GCDNormal {
 
     public static void main(String []args){
 
-        int m = 24;
-        int n =7;
+        int m = 44;
+        int n =0;
+        // n should be less than m
         int gcd=1;
 
-        for(int i=2;i<=n;i++)
+        for(int i=n;i>=1;i--)
         {
             if(n%i==0&&m%i==0)
             {
-                gcd = gcd*i;
-                m = m/i;
-                n=n/i;
+                gcd = i;
             }
 
         }
