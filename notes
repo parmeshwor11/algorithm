@@ -1,9 +1,22 @@
-Ploynomial time : an algorithm that runs in polynomial time means , the number of
-                  steps of processing required is a polynomial function of input size.
+Polynomial time : 
+An algorithm that runs in polynomial time means , the number of steps of processing required is a polynomial function of input size.
 
-P, NP Problems
+P : 
+problem can be solved using algorithm that runs in polynomial time.P problems are said to have feasible solutions because an algorithm that runs in polynomial time can output its result in acceptable length of time.
 
-P : problem can be solved using algorithm that runs in polynomial time.
-    P problems are said to have feasible solutions because an algorithm
-    that runs in ploynomial time can output its result in acceptable length of time.
-    
+NP :
+Non deterministic Polynomial time algorithms. It is a decision problem. Now there are a lot of programs that don't (necessarily) run in polynomial time on a regular computer, but do run in polynomial time on a nondeterministic Turing machine.  These programs solve problems in NP, which stands for nondeterministic polynomial time.
+A nondeterministic Turing machine can do everything a regular computer can and more.*** This means all problems in P are also in NP.
+An equivalent way to define NP is by pointing to the problems that can be verified in polynomial time.This means there is not necessarily a polynomial-time way to find a solution, but once you have a solution it only takes polynomial time to verify that it is correct.
+
+Some people think P = NP, which means any problem that can be verified in polynomial time can also be solved in polynomial time and vice versa. If they could prove this, it would revolutionize computer science because people would be able to construct faster algorithms for a lot of important problems.
+
+NP hard : 
+It may or may not be a decision problem. What does NP-hard mean?  A lot of times you can solve a problem by reducing it to a different problem.  I can reduce Problem B to Problem A if,given a solution to Problem A,I can easily construct a solution to Problem B.  (In this case, "easily" means "in polynomial time.")
+
+If a problem is NP-hard, this means I can reduce any problem in          NP to that problem.  This means if I can solve that problem,I can easily solve any problem in NP.  If we could solve an NP-hard problem in polynomial time, this would prove P = NP.
+
+NP complete : 
+A problem is NP-complete if the problem is both
+      NP-hard, and
+      in NP.
