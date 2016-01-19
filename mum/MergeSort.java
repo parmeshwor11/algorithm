@@ -1,4 +1,4 @@
-package algo;
+package algorithm.mum;
 
 public class MergeSort {
 	
