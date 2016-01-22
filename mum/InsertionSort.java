@@ -5,7 +5,9 @@ package algorithm.mum;
  */
 public class InsertionSort {
 
-
+/*
+* in insertion sort , array upto nth position is sorted in nth iteration, I(i) i.e its loop invariant
+* */
 
     public static void main(String[] args) {
 
@@ -22,30 +24,14 @@ public class InsertionSort {
 
         // using while loop; here we can observe best case of Insertion sort ie. O(n)
         for(int i=1;i<arr.length;i++){
-            int temp = i-1;
-           while (temp>=0&&arr[i]<arr[temp]) temp --;
+            int temp = arr[i];
+            int j=i-1;
+           while (j>=0&&temp<arr[j]) {
+               arr[j+1]=arr[j];
+               j --;
+           }
 
-            swap (arr,i,temp+1);
+            arr[j+1]=temp;
         }
-
-        // for loop implementation
-
-    /*    for(int i=1;i<arr.length;i++){
-            int min = i;
-            for(int j=i-1;j>=0;j--){
-
-                if(arr[i]<arr[j])
-                    min = j;
-            }
-
-            swap(arr,i,min);
-        }*/
-    }
-
-    private static void swap(int[]a,int i, int j) {
-
-        int temp = a[j];
-        a[j] = a[i];
-        a[i] = temp;
     }
 }
