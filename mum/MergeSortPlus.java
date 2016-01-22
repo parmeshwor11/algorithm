@@ -7,18 +7,13 @@ public class MergeSortPlus {
 
     public static void main(String[] args) {
 
-        int n = 10000;
+        int n = 100000000;
         int [] a = new int[n];
         int [] aux = new int[n];
-        for(int i=100;i>0;i--)
+        for(int i=n;i>0;i--)
         {
             a[n-i] = i;
         }
-        // unsorted
-     /*   for(int x:a)
-            System.out.print(x + " ");*/
-
-        // merge
 
         long t1 = System.currentTimeMillis();
         mergeSortPlus(a, aux, 0, n - 1);
@@ -29,11 +24,6 @@ public class MergeSortPlus {
         System.out.println("mergePlus  :: size " +n+  " time :  "+(t2-t1));
         System.out.println("merge Sort :: size : "+n+ " time : "+(t3-t2));
 
-        //insertionSort(a,0,n-1);
-      /*  System.out.println("========================== ");
-        for(int x:a)
-            System.out.print(x + " ");*/
-
     }
 
     static void mergeSortPlus(int[] A,int[] Aux,int lo, int hi){
@@ -41,10 +31,8 @@ public class MergeSortPlus {
         if(hi<=lo+8)
         {
             insertionSort(A,lo,hi);
-
             return;
         }
-
 
         int mid = lo + (hi - lo) / 2;
         mergeSortPlus(A, Aux, lo, mid);
@@ -65,9 +53,9 @@ public class MergeSortPlus {
 
     }
     private static void insertionSort(int[] arr, int lo, int hi) {
-
+        int temp;
         for(int i=lo;i<hi;i++){
-            // int x = arr[i];
+
             int j = i+1;
             int x = arr[j];
 
@@ -75,16 +63,14 @@ public class MergeSortPlus {
             {
                 if(arr[j-1]>arr[j])
                 {
-                    int temp = arr[j];
+                    temp = arr[j];
                     arr[j]=arr[j-1];
 
 
                     arr[j-1]=temp;
                 }
                 j--;
-
             }
-
         }
     }
 
