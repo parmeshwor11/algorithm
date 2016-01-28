@@ -1,0 +1,77 @@
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+public class BFSDisconnected {
+	
+	
+	// using adjacency Matrix
+	
+	/*
+	 *  A B C D E F G H I
+	 *A 0 1 1 0 0 1 0 0 0
+	 *B 1 0 0 0 0 1 0 0 0
+	 *C 1 0 0 0 0 1 1 0 0
+	 *D 0 0 0 0 1 0 0 0 1
+	 *E 0 0 0 1 0 0 0 0 1
+	 *F 1 1 1 0 0 0 0 1 0
+	 *G 0 0 1 0 0 0 0 1 0
+	 *H 0 0 0 0 0 1 1 0 0
+	 *I 0 0 0 1 1 0 0 0 0 
+	 * */
+	static char [] nodes={'A','B','C','D','E','F','G','H','I'};
+	static int[][] AdjMatrix = {
+			{ 0, 1, 1, 0, 0, 1, 0, 0, 0},
+			{ 1, 0, 0, 0, 0, 1, 0, 0, 0},
+			{ 1, 0, 0, 0, 0, 1, 1, 0, 0},
+			{ 0, 0, 0, 0, 1, 0, 0, 0, 1},
+			{ 0, 0, 0, 1, 0, 0, 0, 0, 1},
+			{ 1, 1, 1, 0, 0, 0, 0, 1, 0},
+			{ 0, 0, 1, 0, 0, 0, 0, 1, 0},
+			{ 0, 0, 0, 0, 0, 1, 1, 0, 0},
+			{ 0, 0, 0, 1, 1, 0, 0, 0, 0}
+			};
+	
+	LinkedList<Character> li = new LinkedList<>();
+	static Map<Character,Boolean> visited = new HashMap<Character,Boolean>(); 
+	static Map<Character,LinkedList<Character>> AdjacencyMap = new HashMap<Character,LinkedList<Character>>();
+	
+	public static void main(String[] args) {
+		
+		init();
+		
+		// print adjacency list'
+		for(Entry<Character,LinkedList<Character>> map:AdjacencyMap.entrySet())
+		{
+			System.out.print(map.getKey()+"  : ");
+			System.out.print(map.getValue());
+			System.out.println();
+		}
+		
+	}
+
+	private static void init() {
+		
+		// initialize AdjacencyMap
+		for(int i=0;i<nodes.length-1;i++)
+		{
+			LinkedList<Character> li = new LinkedList<>();
+			for(int j=0;j<nodes.length;j++)
+			{
+				
+				if(AdjMatrix[i][j]==1)
+					li.add(nodes[j]);
+					
+			}
+			AdjacencyMap.put(nodes[i], li);
+		}
+		
+		// 
+		
+		
+	}
+	
+
+}
