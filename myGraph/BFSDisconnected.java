@@ -30,7 +30,7 @@ public class BFSDisconnected {
 		
 		init();
 		bfsTraversal();
-		
+
 		// print adjacency list'
 		/*for(Map.Entry<Character,LinkedList<Character>> map:AdjacencyMap.entrySet())
 		{
@@ -48,23 +48,21 @@ public class BFSDisconnected {
 			char unvisitedNode = getNextNotVisitedVertex();
 			nodesQueue.add(unvisitedNode);
 			visitedMap.put(unvisitedNode, true);
-			System.out.println(unvisitedNode);
+			System.out.print(unvisitedNode+" ");
 			visitedVertexCount++;
 
 			while(!nodesQueue.isEmpty())
 			{
-				System.out.println();
-
-				char peekedNode = nodesQueue.remove();
-				AdjacencyMap.get(peekedNode)
+				char removedNode = nodesQueue.remove();
+				AdjacencyMap.get(removedNode)
 						.stream()
 						.filter(adjNode -> visitedMap.containsKey(adjNode) && (!visitedMap.get(adjNode)))
 						.forEach(adjNode -> {
-					visitedMap.put(adjNode, true);
-					visitedVertexCount++;
-					System.out.print(adjNode + " ");
-					nodesQueue.push(adjNode);
-				});
+							visitedMap.put(adjNode, true);
+							visitedVertexCount++;
+							System.out.print(adjNode + " ");
+							nodesQueue.push(adjNode);
+						});
 			}
 		}
 	}
