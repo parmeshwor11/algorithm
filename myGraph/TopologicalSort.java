@@ -1,3 +1,4 @@
+package algorithm.myGraph;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -36,10 +37,10 @@ public class TopologicalSort {
 	public static void main(String[] args) {
 		
 		init();
-		topologicalSort();
-		for(int i:topSorted){
+		//topologicalSort();
+		/*for(int i:topSorted){
 			System.out.print(i+" ");
-		}
+		}*/
 	}
 
 	  private static void topologicalSort() {
@@ -94,9 +95,20 @@ public class TopologicalSort {
     }
 
 	private static void init() {
-		for(int i=0;i<nodes.length;i++){
+		/*for(int i=0;i<nodes.length;i++){
 			isvisited[i]=false;
-		}
+		}*/
+		System.out.println("{");
+for(int i=0;i<nodes.length;i++)
+{
+	for(int j=0;j<16;j++){
+
+		System.out.print("0,  ");
+		
+	}
+	System.out.println();
+}
+		System.out.println("}");
 		
 	}
 		
