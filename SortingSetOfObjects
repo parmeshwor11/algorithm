@@ -1,0 +1,55 @@
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+public class SortingSetOfObjects {
+	
+	public static void main(String[] args) {
+		
+		   SortedSet<Edge> s = new TreeSet<Edge>();
+		   
+			  s.add(new Edge('A', 'B', 2));
+			  s.add(new Edge ('B','C',4));
+			  s.add(new Edge ('C','A',3));
+			  s.add(new Edge ('D','A',6));
+			  s.add(new Edge ('A','D',6));
+			  s.add(new Edge ('B','D',12));
+			   
+			   for(Edge e : s)
+			   {
+				   System.out.println(e.v1+""+e.v2+" : "+e.weight);
+			   }
+			   
+	}
+	
+	
+	 private static class Edge implements Comparable{
+		   
+		   char v1;
+		   char v2;
+		   int weight;
+		   
+		   Edge(char v1, char v2 , int weight){
+			   
+			   this.v1 = v1;
+			   this.v2 = v2;
+			   this.weight = weight;
+			   
+		   }
+		   
+		@Override
+		public int compareTo(Object arg0) {
+			
+			return   this.weight - ((Edge)arg0).weight;
+		}
+		
+		
+		@Override
+		public boolean equals(Object obj) {
+			return (this.v1 == ((Edge)obj).v1&&this.v2==((Edge)obj).v2 )||
+					(this.v1 == ((Edge)obj).v2&&this.v2==((Edge)obj).v1 ) ;
+			
+			
+		}
+	   }
+	    
+}
