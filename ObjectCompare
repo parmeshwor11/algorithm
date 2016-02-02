@@ -1,0 +1,116 @@
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+
+public class ObjectCompare {
+	
+	
+	
+	public static void main(String[] args) {
+		
+		List<Item> li = new LinkedList<>();
+		
+		li.add(new Item('A',5));
+		li.add(new Item('B',3));
+		li.add(new Item('C',1));
+		
+		
+		Collections.sort(li);
+		
+		for(Item i : li){
+			System.out.println(i.key+" "+i.val);
+		}
+		
+		
+		//--------------------------------
+		
+		TV [] tvs = new TV[3];
+		tvs[0] = new TV("sammy",500,7);
+		tvs[1] = new TV("lg",600,8);
+		tvs[2] = new TV("sony",400,6);
+		
+		Arrays.sort(tvs,new TvPriceComp());
+		for(TV tv : tvs){
+			System.out.println(tv.price+" "+tv.brand+" "+tv.rating);
+		}
+		
+		System.out.println("----------------------");
+		
+		Arrays.sort(tvs,new TvBrandComp());
+		for(TV tv : tvs){
+			System.out.println(tv.price+" "+tv.brand+" "+tv.rating);
+		}
+	}
+	
+	
+	
+	
+	private static class Item implements Comparable{
+		
+		char key;
+		int val;
+		
+		Item(char key, int value)
+		{
+			this.key = key;
+			this.val = value;
+			
+		}
+
+
+		@Override
+		public int compareTo(Object o) {
+			
+			 return ((Item)o).key-this.key;
+		}
+	}
+	
+	private static class TV {
+		
+		String brand;
+		int price;
+		int rating ;
+		
+		TV(String brand, int price, int rating)
+		{
+			this.brand = brand;
+			this.price = price;
+			this.rating = rating;
+			
+		}
+
+	}
+	
+	private static class TvPriceComp implements Comparator<TV>{
+
+		@Override
+		public int compare(TV o1, TV o2) {
+			
+			return o1.price - o2.price;
+		}
+		
+	}
+	
+	private static class TvBrandComp implements Comparator<TV>{
+
+		@Override
+		public int compare(TV o1, TV o2) {
+			
+			return o1.brand.compareTo(o2.brand);
+		}
+		
+	}
+	
+	private static class TvRatingComp implements Comparator<TV>{
+
+		@Override
+		public int compare(TV o1, TV o2) {
+			
+			return o1.rating - o2.rating;
+		}
+		
+	}
+
+}
